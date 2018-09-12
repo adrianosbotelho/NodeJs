@@ -1,7 +1,24 @@
+const morgan = require('morgan');
+const helmet = require('helmet');
 const express = require('express');
 const app = express();
 const Joi = require('joi');
+const logger = require('./logger');
+
+
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static('public'));
+app.use(helmet());
+app.use(morgan('common'));
+
+
+app.use(logger);
+
+app.use(function(req, resp, next) {
+    console.log('Autheticating...');
+   next();
+});
 
 
 const courses = [
