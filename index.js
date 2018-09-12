@@ -5,8 +5,8 @@ const app = express();
 const Joi = require('joi');
 const logger = require('./logger');
 
-console.log(`NODE_ENV: ${process.env.NODE_ENV} `);
-console.log(`app: ${app.get('env')}`)
+//console.log(`NODE_ENV: ${process.env.NODE_ENV} `);
+//console.log(`app: ${app.get('env')}`)
 
 
 app.use(express.json());
